@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+  application:
+    name: order-server
+server:
+  port: 8082
+
+dubbo:
+  registry:
+    #    address: nacos://localhost:8848
+    address: spring-cloud://localhost
+  protocol:
+    name: dubbo
+    port: -1
+  cloud:
+    # 订阅的服务名称，不指定默认全部
+    subscribed-services: common-server
+  consumer:
+    # CommonConstants.DEFAULT_TIMEOUT
+    # CommonConstants.DEFAULT_RETRIES
+    retries: 0
+    # 关闭检查，没有提供者时不报错
+    check: false

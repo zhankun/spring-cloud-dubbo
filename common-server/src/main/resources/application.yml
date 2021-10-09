@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+  application:
+    name: common-server
+server:
+  port: 8081
+dubbo:
+  registry:
+#    address: nacos://localhost:8848
+    address: spring-cloud://localhost
+  protocol:
+    name: dubbo
+    port: -1
+    dispatcher: all
+    threadpool: fixed
+    threads: 10
+    threadname: testxixi
+  provider:
+    loadbalance: random
+    timeout: 1000
